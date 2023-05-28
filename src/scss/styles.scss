@@ -1,0 +1,104 @@
+@import "_colors.scss";
+body {
+  font-family: sans-serif;
+  text-align: left;
+  background: linear-gradient(to right bottom, $primary-color, $secondary-color);
+  color: $light-color;
+  min-height: 100vh;
+}
+
+h2 {
+  color: $light-color;
+}
+a {
+  color: $link-color;
+}
+p{
+  margin: 0px;
+  padding: 0px;
+}
+
+@mixin alert($border-color, $background-color){
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  background-color: $background-color;
+  margin: 1rem;
+  padding: 0.5rem;
+
+  .alert-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@mixin button($border-color, $color, $background-color){
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  color: $color;
+  background-color: $background-color;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color;
+    color: $background-color;
+  }
+}
+
+.content {
+  .header {
+    display: flex;
+    .logo {
+
+    }
+
+    h1 {
+      color: $light-color;
+    }
+  }
+
+  .content-section {
+    .content-text {
+
+    }
+
+    .success {
+      @include alert($dark-color, $success-color);
+    }
+
+    .info {
+      @include alert($dark-color, $info-color);
+    }
+
+    .warning {
+      @include alert($dark-color, $warning-color);
+    }
+
+    .error {
+      @include alert($dark-color, $error-color);
+    }
+  
+  }
+
+  .button-container {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+
+    .confirm-button {
+      @include button ($dark-color, $success-color, $light-color);
+    }
+
+    .reject-button {
+      @include button ($dark-color, $secondary-color, $light-color);
+    }
+  }
+}
+
+
+
+
+
+
+

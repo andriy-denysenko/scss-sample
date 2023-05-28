@@ -1,0 +1,106 @@
+/* Palette based on Pantone's color of the year 2023
+   https://www.pantone.com/color-of-the-year/2023 */
+body {
+  font-family: sans-serif;
+  text-align: left;
+  background: linear-gradient(to right bottom, #932d44, #943e6f);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+a {
+  color: #2e7e94;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.content .header {
+  display: flex;
+}
+.content .header h1 {
+  color: #ffffff;
+}
+.content .content-section .success {
+  border: 1px solid #2d2f30;
+  border-radius: 10px;
+  background-color: #318959;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.content .content-section .success .alert-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.content .content-section .info {
+  border: 1px solid #2d2f30;
+  border-radius: 10px;
+  background-color: #2e7e94;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.content .content-section .info .alert-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.content .content-section .warning {
+  border: 1px solid #2d2f30;
+  border-radius: 10px;
+  background-color: #8e4c2a;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.content .content-section .warning .alert-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.content .content-section .error {
+  border: 1px solid #2d2f30;
+  border-radius: 10px;
+  background-color: #6b232d;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.content .content-section .error .alert-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.content .button-container {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.content .button-container .confirm-button {
+  border: 1px solid #2d2f30;
+  border-radius: 5px;
+  color: #318959;
+  background-color: #ffffff;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.content .button-container .confirm-button:hover {
+  background-color: #318959;
+  color: #ffffff;
+}
+.content .button-container .reject-button {
+  border: 1px solid #2d2f30;
+  border-radius: 5px;
+  color: #943e6f;
+  background-color: #ffffff;
+  margin: 0.3rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.content .button-container .reject-button:hover {
+  background-color: #943e6f;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=styles.css.map */
