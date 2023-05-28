@@ -1,19 +1,18 @@
 @import "_colors.scss";
 body {
   font-family: sans-serif;
+  font-size: 1em;
   text-align: left;
   background: linear-gradient(to right bottom, $primary-color, $secondary-color);
   color: $light-color;
   min-height: 100vh;
 }
 
-h2 {
-  color: $light-color;
-}
 a {
   color: $link-color;
 }
-p{
+
+div, p{
   margin: 0px;
   padding: 0px;
 }
@@ -22,22 +21,22 @@ p{
   border: 1px solid $border-color;
   border-radius: 10px;
   background-color: $background-color;
-  margin: 1rem;
-  padding: 0.5rem;
+  margin: 1em;
+  padding: 0.5em;
 
   .alert-title {
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
   }
 }
 
-@mixin button($border-color, $color, $background-color){
+@mixin button($color, $border-color, $background-color){
   border: 1px solid $border-color;
   border-radius: 5px;
   color: $color;
   background-color: $background-color;
-  margin: 0.3rem;
-  padding: 0.3rem;
+  margin: 0.3em;
+  padding: 0.3em;
   cursor: pointer;
 
   &:hover {
@@ -46,23 +45,44 @@ p{
   }
 }
 
-.content {
-  .header {
-    display: flex;
-    .logo {
-
+.horizontal-container{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  .confirm-button {
+      @include button ($light-color, $dark-color, $success-color);
     }
 
-    h1 {
-      color: $light-color;
-    }
+  .reject-button {
+    @include button ($light-color, $dark-color, $secondary-color);
+  }
+}
+
+.header {
+  color: $light-color;
+  font-size: 2rem;
+  margin: 1em 0.5em;
+
+  .logo {
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: $secondary-color;
+    border-radius: 10px;
   }
 
+  .site-title {
+    font-weight: normal;
+    padding: 0.5em;
+  }
+}
+
+.content {
+
+  padding: 0.5em 1em;
+  display: block;
+
   .content-section {
-    .content-text {
-
-    }
-
+    display: block;
     .success {
       @include alert($dark-color, $success-color);
     }
@@ -79,20 +99,6 @@ p{
       @include alert($dark-color, $error-color);
     }
   
-  }
-
-  .button-container {
-    display: flex;
-    align-items: start;
-    justify-content: start;
-
-    .confirm-button {
-      @include button ($dark-color, $success-color, $light-color);
-    }
-
-    .reject-button {
-      @include button ($dark-color, $secondary-color, $light-color);
-    }
   }
 }
 
