@@ -1,7 +1,10 @@
 @import "_colors.scss";
+
+$size: 1em;
+
 body {
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: $size;
   text-align: left;
   background: linear-gradient(to right bottom, $primary-color, $secondary-color);
   color: $light-color;
@@ -17,10 +20,30 @@ div, p{
   padding: 0px;
 }
 
-@mixin alert($border-color, $background-color){
-  border: 1px solid $border-color;
-  border-radius: 10px;
+
+// Mixins
+@mixin bordered-item($color, $radius){
+  border: 1px solid $color;
+  border-radius: $radius;
+}
+
+@mixin button($background-color: $success-color){
+  @include bordered-item($dark-color, 5px);
+  color: $light-color;
   background-color: $background-color;
+  margin: 0.3em;
+  padding: 0.3em 0.4em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $light-color;
+    color: $background-color;
+  }
+}
+
+// Inheritance
+%alert {
+  @include bordered-item($dark-color, 10px);
   margin: 1em;
   padding: 0.5em;
 
@@ -30,40 +53,27 @@ div, p{
   }
 }
 
-@mixin button($color, $border-color, $background-color){
-  border: 1px solid $border-color;
-  border-radius: 5px;
-  color: $color;
-  background-color: $background-color;
-  margin: 0.3em;
-  padding: 0.3em;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $color;
-    color: $background-color;
-  }
-}
 
 .horizontal-container{
   display: flex;
   align-items: start;
   justify-content: start;
+
   .confirm-button {
-      @include button ($light-color, $dark-color, $success-color);
-    }
+    @include button ();
+  }
 
   .reject-button {
-    @include button ($light-color, $dark-color, $secondary-color);
+    @include button ($secondary-color);
   }
 }
 
 .header {
   color: $light-color;
-  font-size: 2rem;
+  font-size: 2em;
   margin: 1em 0.5em;
 
-  .logo {
+  .logo-text {
     font-weight: bold;
     padding: 0.5em;
     background-color: $secondary-color;
@@ -79,32 +89,54 @@ div, p{
 .content {
 
   padding: 0.5em 1em;
-  display: block;
 
-  .content-section {
-    display: block;
+  .content-text {
+    text-align: center;
+    font-size: 1.3 * $size;
+  }
+
+  .features {
+
+    display: flex;
+    margin: 0.5em;
+    align-items: start;
+    font-size: 0.9 * $size;
+
+    .feature {
+      text-align: center;
+      margin: 0.5em;
+      padding: 1em;
+      @include bordered-item($light-color, 20px);
+    }
+  }
+
+  .alerts{
+
     .success {
-      @include alert($dark-color, $success-color);
+      @extend %alert;
+      background-color: $success-color;
     }
 
     .info {
-      @include alert($dark-color, $info-color);
+      @extend %alert;
+      background-color: $info-color;
     }
 
     .warning {
-      @include alert($dark-color, $warning-color);
+      @extend %alert;
+      background-color: $warning-color;
     }
 
     .error {
-      @include alert($dark-color, $error-color);
+      @extend %alert;
+      background-color: $error-color;
     }
+  }
   
+
+  .content-section {
+    display: block;
   }
 }
-
-
-
-
-
 
 
